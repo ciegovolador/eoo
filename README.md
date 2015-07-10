@@ -10,6 +10,11 @@ Primero creo na mauina virtual en azure con la version estable de CoreOS abriend
 
 Me logueo atravez de ssh y traigo la version de bitnami de nginx con docker
 
-´´docker pull bitnami/nginx:latest´´
+` docker pull bitnami/nginx:latest `
+ 
+ y lo mapeo para trabajar directamente sobre el 
 
-https://github.com/bitnami/bitnami-docker-nginx
+` docker run -p 80:80 -p 443:443 bitnami/nginx `
+
+*ref: https://github.com/bitnami/bitnami-docker-nginx*
+

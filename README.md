@@ -12,9 +12,25 @@ Me logueo atravez de ssh y traigo la version de bitnami de nginx con docker
 
 ` docker pull bitnami/nginx:latest `
  
- y lo mapeo para trabajar directamente sobre el 
+ corro el contenedor y lo mapeo para trabajar directamente sobre el 
 
 ` docker run -p 80:80 -p 443:443 bitnami/nginx `
+
+entoces puedo ver la pagina de bienbenida de nginx desde el navegador en la direccion ip de la maquina virtual
+
+luego creo una carpeta para menejar la configuracion del contenedor desde el host
+
+` mkdir nginx `
+
+y monto el volumen reemplasando */path/to/* con el resultado del comando ` pwd ` 
+
+` docker run --name nginx -v /path/to/nginx/conf:/bitnami/nginx/conf bitnami/nginx `
+
+el proximo paso es hacer un backup, por las dudas.
+
+` sudo cp nginx/conf/nginx.conf nginx/conf/nginx.conf.$(date "+%b_%d_%Y_%H.%M.%S") `
+
+y ahora si, a jugar
 
 *ref: https://github.com/bitnami/bitnami-docker-nginx*
 

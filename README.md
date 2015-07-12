@@ -11,20 +11,22 @@ Primero creo na mauina virtual en azure con la version estable de CoreOS abriend
 Me logueo atravez de ssh y traigo la version de bitnami de nginx con docker
 
 ` docker pull bitnami/nginx:latest `
- 
- corro el contenedor y lo mapeo para trabajar directamente sobre el 
-
-` docker run -p 80:80 -p 443:443 bitnami/nginx `
-
-entoces puedo ver la pagina de bienbenida de nginx desde el navegador en la direccion ip de la maquina virtual
 
 luego creo una carpeta para menejar la configuracion del contenedor desde el host
 
 ` mkdir nginx `
 
-y monto el volumen reemplasando */path/to/* con el resultado del comando ` pwd ` 
+y otra para aljar las aplicaciones 
 
-` docker run --name nginx -v /path/to/nginx/conf:/bitnami/nginx/conf bitnami/nginx `
+` mkdir app `
+ 
+ luego corro el contenedor, mapeando los puertos al exterior, dandole nombre y montando un voulmen para la configuracion mas otro para las aplicaciones,
+
+esto se hace remplazado */path/to/* con el resultado del comando ` pwd ` 
+
+` sudo docker run  -p 80:80 -p 443:44 --name nginx -v /home/mauro/nginx/conf:/bitnami/nginx/conf  -v /home/mauro/app:/app bitnami/nginx:1.8.0-4 `
+
+entoces puedo ver la pagina de bienbenida de nginx desde el navegador en la direccion ip de la maquina virtual
 
 el proximo paso es hacer un backup, por las dudas.
 

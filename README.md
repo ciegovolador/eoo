@@ -36,3 +36,4 @@ y ahora si, a jugar
 
 *ref: https://github.com/bitnami/bitnami-docker-nginx*
 
+sudo docker run -it --rm -v "$(pwd)":/app danieldent/meteor meteor -p 80
